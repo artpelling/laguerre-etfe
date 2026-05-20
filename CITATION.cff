@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: >-
+  Code for Numerical Experiments in "Impulse response estimation via Laguerre-Fourier transformation"
+message: >-
+  "If you use this software, please cite it using the
+  metadata from this file."
+type: software
+authors:
+  - given-names: "Art J. R."
+    family-names: "Pelling"
+    email: "a.pelling@tu-berlin.de"
+    orcid: "https://orcid.org/0000-0003-3228-6069"
+    affiliation: "Department of Engineering Acoustics, Technische Universität Berlin"
+  - given-names: "Tamás"
+    family-names: "Dózsa"
+    email: "tamas.dozsa@unidistance.ch"
+    orcid: "https://orcid.org/0000-0003-0919-4385"
+    affiliation: "UniDistance Suisse"
+repository-code: "https://github.com/artpelling/laguerre-etfe"
+license: "MIT"
