@@ -1,0 +1,51 @@
+[project]
+name = "irest"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Art Pelling", email = "a.pelling@tu-berlin.de" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+    "scipy>=1.16.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff>=0.15.12",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.4,<0.10.0"]
+build-backend = "uv_build"
+
+
+[tool.basedpyright]
+venv = ".venv"
+typeCheckingMode = 'off'
+
+
+[tool.ruff]
+src = ["src"]
+line-length = 120
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint]
+select = ["B", "D", "E", "F", "I", "ICN", "N", "Q", "W"]
+ignore = [
+    "D100", "D101", "D102", "D103", "D104", "D401",
+    "E741",
+    "N802", "N803", "N806",
+]
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 100
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
