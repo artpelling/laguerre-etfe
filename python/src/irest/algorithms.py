@@ -41,7 +41,7 @@ def etfe(u, y):
         return np.fft.ifft(np.fft.fft(y) / np.fft.fft(u_pad))[:N]
 
 
-def compute_laguerre_fourier_coefficients(u, y, a, fast=False):
+def compute_laguerre_fourier_coefficients(u, y, a, fast=True):
     """Compute Laguerre-Fourier coefficients from input and output signals.
 
     Computes the Laguerre-Fourier coefficients of the transfer function from input signal u
@@ -66,7 +66,7 @@ def compute_laguerre_fourier_coefficients(u, y, a, fast=False):
         Laguerre parameter(s) in the unit disk (|a| < 1). Can be real or complex.
     fast : bool, optional
         If True, uses the efficient single-FFT Algorithm 3. If False (default),
-        uses Algorithm 2 with three FFT calls. Default is False.
+        uses Algorithm 2 with three FFT calls. Default is True.
 
     Returns
     -------
@@ -87,7 +87,7 @@ def compute_laguerre_fourier_coefficients(u, y, a, fast=False):
         omega = np.exp(2j * np.pi * np.arange(N) / N)
         u_z *= 1 + a.conj() * omega
         H = y_z / u_z
-        return np.fft.fft(H, norm="backward") * (1 - np.abs(a) ** 2) / N
+        return np.fft.fft(H, norm="backward") * np.sqrt(1 - np.abs(a) ** 2) / N
     else:
         u_hat, y_hat = flft(u_z, T), flft(y_z, T)
 
